@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('assets/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('assets/Roboto-Bold.ttf') format('truetype');
+}
+
+
+body {
+    background-color: hsl(235, 18%, 26%);
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;    
+}
+
+.center-div {
+    background-color: hsl(0, 0%, 100%);
+    width: 45vw;
+    height: 70vh;
+    margin: 13vh auto;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 95%;
+    height: 95%;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 1fr;
+}
+
+.left-content  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-content .one {
+    width: 80%;
+    height: 80%;
+    font-family: 'Roboto';
+    font-size: 13px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.left-content .one .heading {
+    font-family: 'Roboto-Bold';
+    color: hsl(234, 29%, 20%);
+    font-size: 40px;
+}
+
+.left-content .one div {
+    margin: 10px 0 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.left-content .one form {
+    margin: 0;
+}
+
+.left-content .one label {
+    color: hsl(234, 29%, 20%);
+}
+
+.left-content .one form .Email {
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0;
+    border-radius: 10px;
+    border: 1px solid gray;
+}   
+
+.left-content .one form .submit {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: hsl(234, 29%, 20%);
+    border: 0;
+    border-radius: 5px;
+    color: hsl(0, 0%, 100%);
+}
+
+    .submit:hover {
+        background-image: linear-gradient(to right, hsl(346.71, 92.27%, 64.51%), hsl(4, 100%, 67%));
+    }
+
+.right-content  {
+    background-image: url(assets/illustration-sign-up-desktop.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+}
