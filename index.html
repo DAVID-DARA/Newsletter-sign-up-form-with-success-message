@@ -18,19 +18,42 @@
                     <div><img src="assets/icon-list.svg" alt="check">&nbsp;&nbsp;<span>And much more!</span></div>
                     <br>
                     <br>
-                    <form action="">
-                        <label for="user-email">Email address</label><br>
-                        <input type="email" name="user-email" class="Email" placeholder="email@company.com">
+                    <form id="newsletterForm" action="">
+                        <div class="form-info">
+                            <label for="user-email" class="input-heading">Email address</label>
+                            <span id="emailError" style="color: red;"></span><br>
+                        </div>
+                        <input type="email" name="user-email" id="Email" placeholder="email@company.com">
 
-                        <input type="button" value="Subscribe to monthly newsletter" class="submit">
+                        <input type="submit" value="Subscribe to monthly newsletter" class="submit">
                     </form>
                 </div>
             </div>
-            <div class="right-content">
-                <!-- <img src="assets/illustration-sign-up-desktop.svg" alt="test-image"> -->
-            </div>
+            <div class="right-content"></div>
         </div>
     </div>
-    <script></script>
+    <script>
+        const formDetail = document.getElementById("newsletterForm");
+        const emailAddress = document.getElementById("Email");
+        const emailError = document.getElementById("emailError");
+
+        formDetail.addEventListener('submit', function(event) {
+            if (!isValidEmail(emailAddress.value)) {
+                event.preventDefault();
+                emailError.textContent = 'Valid Email Required';
+                emailAddress.style.borderColor = 'hsl(4, 100%, 67%)';
+                emailAddress.style.backgroundColor = 'hsla(4, 100%, 67%, 0.211)';
+            } else {
+                emailError.textContent = '';
+                emailAddress.style.borderColor = '';
+                emailAddress.style.backgroundColor = '';
+            }
+        });
+
+        function isValidEmail(email) {
+            const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegExp.test(email);
+        }
+    </script>
 </body>
 </html>
