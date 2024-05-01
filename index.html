@@ -7,39 +7,53 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="center-div">
-        <div class="content">
-            <div class="left-content">
-                <div class="one">
-                    <span class="heading">Stay updated!</span>
-                    <p>Join 60,000+ product managers receiving monthly updates on: </p>
-                    <div><img src="assets/icon-list.svg" alt="check">&nbsp;&nbsp;<span>Product discovery and building what matters</span></div>
-                    <div><img src="assets/icon-list.svg" alt="check">&nbsp;&nbsp;<span>Measuring to ensure updates are a success</span></div>
-                    <div><img src="assets/icon-list.svg" alt="check">&nbsp;&nbsp;<span>And much more!</span></div>
-                    <br>
-                    <br>
-                    <form id="newsletterForm" action="">
-                        <div class="form-info">
-                            <label for="user-email" class="input-heading">Email address</label>
-                            <span id="emailError" style="color: red;"></span><br>
-                        </div>
-                        <input type="email" name="user-email" id="Email" placeholder="email@company.com">
-
-                        <input type="submit" value="Subscribe to monthly newsletter" class="submit">
-                    </form>
-                </div>
+    <div class="main">
+        <div class="success" id="complete">
+            <div class="success-content">
+                <img src="assets/icon-success.svg" alt=""><br>
+                <p class="Thanks">Thanks for subscribing!</p>
+                <p>A confirmation email has been sent to <span id="user-email"></span>. Please oopen and click the button to confirm </p>
+                <input type="button" name="" value="Dismiss message" id="dismiss" class="success-button">
             </div>
-            <div class="right-content"></div>
+        </div>
+        <div class="center-div" id="subscribe-form">
+            <div class="content">
+                <div class="left-content">
+                    <div class="one">
+                        <span class="heading">Stay updated!</span>
+                        <p>Join 60,000+ product managers receiving monthly updates on: </p>
+                        <div><img src="assets/icon-list.svg" alt="check">&nbsp;&nbsp;<span>Product discovery and building what matters</span></div>
+                        <div><img src="assets/icon-list.svg" alt="check">&nbsp;&nbsp;<span>Measuring to ensure updates are a success</span></div>
+                        <div><img src="assets/icon-list.svg" alt="check">&nbsp;&nbsp;<span>And much more!</span></div>
+                        <br>
+                        <br>
+                        <form id="newsletterForm" action="">
+                            <div class="form-info">
+                                <label for="user-email" class="input-heading">Email address</label>
+                                <span id="emailError" style="color: red;"></span><br>
+                            </div>
+                            <input type="email" id="Email" placeholder="email@company.com">
+
+                            <input type="submit" value="Subscribe to monthly newsletter" class="submit">
+                        </form>
+                    </div>
+                </div>
+                <div class="right-content"></div>
+            </div>
         </div>
     </div>
     <script>
         const formDetail = document.getElementById("newsletterForm");
         const emailAddress = document.getElementById("Email");
         const emailError = document.getElementById("emailError");
+        const userEmail = document.getElementById("user-email");
+        const firstPage = document.getElementById("subscribe-form");
+        const success = document.getElementById("complete");
+        const dismiss = document.getElementById("dismiss");
 
         formDetail.addEventListener('submit', function(event) {
+            event.preventDefault();
             if (!isValidEmail(emailAddress.value)) {
-                event.preventDefault();
                 emailError.textContent = 'Valid Email Required';
                 emailAddress.style.borderColor = 'hsl(4, 100%, 67%)';
                 emailAddress.style.backgroundColor = 'hsla(4, 100%, 67%, 0.211)';
@@ -47,7 +61,16 @@
                 emailError.textContent = '';
                 emailAddress.style.borderColor = '';
                 emailAddress.style.backgroundColor = '';
+                userEmail.textContent = emailAddress.value;
+                firstPage.style.visibility = 'hidden';
+                success.style.visibility = 'visible';
             }
+        });
+
+        dismiss.addEventListener('click', function(event) {
+            event.preventDefault();
+            firstPage.style.visibility = 'visible';
+            success.style.visibility = 'hidden';
         });
 
         function isValidEmail(email) {

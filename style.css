@@ -16,6 +16,55 @@ body {
     justify-content: center;    
 }
 
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success {
+    width: 25vw;
+    height: 55vh;
+    background-color: aliceblue;
+    visibility:hidden;
+    position:absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-family: 'Roboto';
+}
+
+.success-content {
+    width: 80%;
+}
+
+.success-content img {
+    margin-bottom: 20px;
+}
+
+.success-content .Thanks {
+    font-size: 38px;
+    display: inline;
+    /* margin: 100px 0; */
+    font-family: 'Roboto-Bold';
+}
+
+.success-content .success-button {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: hsl(234, 29%, 20%);
+    border: 0;
+    border-radius: 5px;
+    color: white;
+}
+
+.success-button:hover {
+    cursor: pointer;
+    background-image: linear-gradient(to right, hsl(346.71, 92.27%, 64.51%), hsl(4, 100%, 67%));
+}
+
 .center-div {
     background-color: hsl(0, 0%, 100%);
     width: 60vw;
